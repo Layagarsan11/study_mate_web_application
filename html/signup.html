@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Mate-signup</title>
+    <link rel="icon" type="image/x-icon" href="../images/stdymate.png">
+    <link rel="stylesheet" href="../css/signup.css">
+    <script src="../js/signup.js"></script>
+</head>
+
+<body>
+    <h1> welcome to Study Mate</h1>
+    <h2>Sign up to join the community</h2>
+
+    <form id="signup-form" action="" method="post" onsubmit="return validateForm()">
+        <fieldset id="fieldset">
+            <div class="signup">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required placeholder="Enter Email">
+            </div>
+
+            <div class="signup">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required placeholder="Enter Password">
+            </div>
+
+            <button type="submit" id="signupbutton">SIGNUP</button>
+        </fieldset>
+    </form>
+    <p>Already have an account?</p>
+    <a href="login.html" id="login">login</a>
+</body>
+
+</html>

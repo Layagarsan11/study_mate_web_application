@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Mate-home</title>
+    <link rel="stylesheet" href="../css/index.css">
+    
+</head>
+
+<body>
+
+    <header class="header">
+       <img src="../images/studymate.png" alt="stidymate-Official-logo" class="logo" 
+        style="border-radius: 50%; width: 10rem; height: 10rem;">
+        <div id="nav">
+            <a href="index.html">home</a>
+            <a href="features.html">features</a>
+            <a href="contact.html">contact us</a>
+            <a href="login.html">logout</a>
+        </div>
+    </header>
+
+
+    <main class="main-content">
+        <fieldset class="task-form">
+            <p>Add task</p>
+            <br>
+            <div id="task">
+                <label for="taskname">Task Name:</label>
+                <input type="text" name="taskname" id="taskname" required placeholder="Enter task name">
+            </div>
+            <div class="priority-group">
+                <label style="display: block; margin-bottom: 0.5rem;">Priority:</label>
+                <div class="priority-options">
+                    <input type="radio" name="priority" id="p-high" value="High" checked>
+                    <label for="p-high" class="radio-label">High</label>
+                    
+                    <input type="radio" name="priority" id="p-medium" value="Medium">
+                    <label for="p-medium" class="radio-label">Medium</label>
+                    
+                    <input type="radio" name="priority" id="p-low" value="Low">
+                    <label for="p-low" class="radio-label">Low</label>
+                </div>
+            </div>
+
+            <button type="button" id="addTaskBtn">Add Task</button>
+
+        </fieldset>
+
+        <br>
+        <fieldset class="task-list">
+            <h3>My Task List</h3>
+            <p id="progress" style="font-weight: bold; margin-bottom: 15px;">0/0 Finished</p>
+            <ul id="taskList" style="list-style-type: none; padding-left: 0;"></ul>
+
+        <script>
+
+let totalTasks = 0;
+
+document.getElementById("addTaskBtn").addEventListener("click", function () {
+
+    let taskName = document.getElementById("taskname").value;
+
+    if (taskName === "") {
+        alert("Please enter a task");
+        return;
+    }
+
+    let priority = document.querySelector('input[name="priority"]:checked').value;
+
+    let li = document.createElement("li");
+
+    let checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+
+    let text = document.createTextNode(" " + taskName + " (" + priority + ")");
+    
+    // Create the delete button
+    let deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "Delete";
+    deleteBtn.style.padding = "2px 5px";
+    deleteBtn.style.marginLeft = "auto"; // Push delete to the right
+    deleteBtn.style.backgroundColor = "#ff4d4d";
+    deleteBtn.style.color = "white";
+    deleteBtn.style.border = "none";
+    deleteBtn.style.borderRadius = "3px";
+    deleteBtn.style.cursor = "pointer";
+    deleteBtn.style.width = "auto";
+    
+    // Attach event listener to delete button
+    deleteBtn.addEventListener("click", function() {
+        li.remove();
+        totalTasks--;
+        updateProgress();
+    });
+
+    li.appendChild(checkbox);
+    li.appendChild(text);
+    li.appendChild(deleteBtn);
+
+    document.getElementById("taskList").appendChild(li);
+
+    totalTasks++;
+
+    checkbox.addEventListener("change", updateProgress);
+
+    updateProgress();
+
+    document.getElementById("taskname").value = "";
+});
+
+function updateProgress() {
+
+    let checkedTasks = document.querySelectorAll("#taskList input[type='checkbox']:checked").length;
+
+    document.getElementById("progress").textContent =
+        checkedTasks + "/" + totalTasks + " Finished";
+}
+</script>
+
+    </main>
+
+     <footer style="text-align: center; margin-top: 20px; padding: 10px; border-top: 1px solid #ccc;">
+        <p>&copy; 2024 StudyMate. All rights reserved.</p>
+    </body>
+    
+    </html>
