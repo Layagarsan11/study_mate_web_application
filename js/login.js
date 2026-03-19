@@ -15,13 +15,6 @@ function validateForm() {
         return false;
     }
 
-    // user dummy email :- admin@gmail.com 
-    // user dummy password :- Password@123
-    if (username === "admin@gmail.com" && password === "Password@123") {        
-        window.location.href = "index.html"; 
-        return false; 
-    }
-
-    alert("Incorrect credentials. Try admin@gmail.com with Password@123");
-    return false;
+    // If all validations pass, allow the form to submit to login.php
+    return true;
 }   
