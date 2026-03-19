@@ -22,15 +22,18 @@
     </header>
 
     <h1>Contact us</h1>
-    <fieldset>
-        <label for="name">Name</label>
-        <input type="text" name="name" id="name" required placeholder="Enter your name">
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email" required placeholder="Enter your email">
-        <label for="message">Message</label>
-        <textarea name="message" id="message" required placeholder="Enter your message"></textarea>
-        <button type="submit">Send</button>
-    </fieldset>
+
+    <form action="../php/contact.php" method="post">
+        <fieldset>
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" required placeholder="Enter your name">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" required placeholder="Enter your email">
+            <label for="message">Message</label>
+            <textarea name="message" id="message" required placeholder="Enter your message"></textarea>
+            <button type="submit">Send</button>
+        </fieldset>
+    </form>
 
     <footer style="text-align: center; margin-top: 20px; padding: 10px; border-top: 1px solid #ccc;">
         <p>&copy; 2024 StudyMate. All rights reserved.</p>
